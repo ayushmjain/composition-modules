@@ -1,0 +1,26 @@
+inputs:
+- name: project
+  isGlobal: true
+- name: region
+  isGlobal: true
+- name: zone
+  isGlobal: true
+- name: network_name
+  isGlobal: false
+  connections:
+  - componentID: compute-network
+    output: network_name
+- name: database_user_name
+  isGlobal: false
+  connections:
+  - componentID: cloud-run
+    output: service_account_full_name
+- name: sql_dependency
+  isGlobal: false
+  connections:
+  - componentID: compute-network
+    output: sql_dependency
+- name: database_name
+  isGlobal: false
+autoConnections: # component IDs of destination components which can be auto-connected with this component
+- compute-network

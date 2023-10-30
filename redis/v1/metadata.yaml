@@ -1,0 +1,16 @@
+inputs:
+- name: project
+  isGlobal: true
+- name: region
+  isGlobal: true
+- name: zone
+  isGlobal: true
+- name: redis_name
+  isGlobal: false
+- name: network_name
+  isGlobal: false
+  connections:
+  - componentID: compute-network
+    output: network_name
+autoConnections: # component IDs of destination components which can be auto-connected with this component
+- compute-network
